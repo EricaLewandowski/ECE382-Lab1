@@ -10,3 +10,6 @@ ECE382-Lab1
 #### Functionality
   Basic test works well except the subtract function. B Functionality doesn't quite work because it doesn't reset to program. 
   
+## Documentation
+
+  I worked with Capt Trimble on which functions to use when coding the basic functionality. Dr Coulston also helped prepare a better pre-lab/flow chart with pseudo code (turned in on paper). 
