@@ -50,12 +50,21 @@ bumpUp:
 
 check11:
 			add.b	R8, R6
+			cmp.b	#0x255, R6
+			jge		maxValue
+			cmp.b	#0x00 , R6
+			jl		negativeValue
 			mov.b	R6, 0(R10)
 			inc		R10
 			jmp		bumpUp
 
 check22:
-			sub.b	R6, R8
+			sub.b	R6, R8		;the subtract function is not functioning correctly. The correct value should be x3e when the test function
+								; is entered, but it's returning x2c
+			cmp.b	#0x255, R8
+			jge		maxValue
+			cmp.b	#0x00 , R8
+			jl		negativeValue
 			mov.b 	R8, R9
 			mov.b	R9, R6
 			mov.b	R6, 0(R10)
@@ -64,6 +73,10 @@ check22:
 
 check44:
 			clr.b	R6
+			cmp.b	#0x255, R6
+			jge		maxValue
+			cmp.b	#0x00 , R6
+			jl		negativeValue
 			mov.b	R6, 0(R10)
 			inc		R10
 			mov.b	R8, R6
@@ -71,6 +84,14 @@ check44:
 
 check55:
 			jmp		forever
+
+maxValue:
+			mov.b	#0x255, R6
+
+
+negativeValue:
+			mov.b	#0x00, R6
+
 
 forever:
 			jmp		forever
